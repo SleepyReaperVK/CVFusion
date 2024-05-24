@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native'; 
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
