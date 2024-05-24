@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native'; // Import Alert
+import { View, Text, StyleSheet, Alert } from 'react-native'; 
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-// Validation schema for the advanced form
+
 const validationSchema = Yup.object().shape({
     email: Yup.string()
         .email('Invalid email address')
@@ -17,8 +17,7 @@ const validationSchema = Yup.object().shape({
         .matches(/\./, 'URL must contain a dot (.)'),
     port: Yup.number()
         .min(1, 'Port must be a positive number')
-        .max(65535, 'Port must be less than 65536')
-        .required('Port is required'),
+        .max(65535, 'Port must be less than 65536'),
 });
 
 
@@ -28,9 +27,9 @@ const AdvencedForm = () => {
             initialValues={{ email: '', password: '', url: '', port: '' }}
             validationSchema={validationSchema}
             onSubmit={values => {
-                // Log form values
+                 
                 console.log(values);
-                // Show pop-up notification upon form submission
+                
                 Alert.alert(
                     'Success',
                     `Form submitted successfully!\n\nEmail: ${values.email}\nPassword: ${values.password}\nURL: ${values.url}\nPort: ${values.port}`,

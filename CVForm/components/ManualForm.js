@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native'; // Import Alert
 import { TextInput, Button } from 'react-native-paper';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-// Validation schema for the manual form
+
 const manualValidationSchema = Yup.object().shape({
     email: Yup.string()
         .email('Invalid email address')
@@ -23,9 +22,7 @@ const ManualForm = () => {
             initialValues={{ email: '', password: '', url: '' }}
             validationSchema={manualValidationSchema}
             onSubmit={values => {
-                // Log form values
                 console.log(values);
-                // Show pop-up notification upon form submission
                 Alert.alert(
                     'Success',
                     `Form submitted successfully!\n\nEmail: ${values.email}\nPassword: ${values.password}\nURL: ${values.url}`,
