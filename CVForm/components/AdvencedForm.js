@@ -14,8 +14,7 @@ const validationSchema = Yup.object().shape({
         .required('Password is required'),
     url: Yup.string()
         .nullable()
-        .matches(/\./, 'URL must contain a dot (.)')
-        .url('Invalid URL format'),
+        .matches(/\./, 'URL must contain a dot (.)'),
     port: Yup.number()
         .min(1, 'Port must be a positive number')
         .max(65535, 'Port must be less than 65536')

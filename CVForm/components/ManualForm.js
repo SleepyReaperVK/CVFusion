@@ -12,7 +12,9 @@ const manualValidationSchema = Yup.object().shape({
     password: Yup.string()
         .min(6, 'Password must be at least 6 characters')
         .required('Password is required'),
-    url: Yup.string().url().nullable(),
+        url: Yup.string()
+        .nullable()
+        .matches(/\./, 'URL must contain a dot (.)'),
 });
 
 const ManualForm = () => {
